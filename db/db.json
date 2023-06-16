@@ -4,15 +4,8 @@
       "name": "Alex3",
       "email": "sffsff@fdfdfd.com",
       "children": false,
-      "permissions": false,
-      "id": 7
-    },
-    {
-      "name": "DFFF",
-      "email": "erere@gfgf.com",
-      "children": false,
       "permissions": true,
-      "id": 8
+      "id": 7
     },
     {
       "name": "Vasyan",
@@ -22,10 +15,10 @@
       "id": 10
     },
     {
-      "name": "Vasyan",
-      "email": "vasya@vaflya.ru",
+      "name": "Вася",
+      "email": "dgdg@ggfgf.com",
       "children": false,
-      "permissions": false,
+      "permissions": true,
       "id": 11
     }
   ]

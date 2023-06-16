@@ -6,7 +6,10 @@ export class UserService {
 				const data = await responce.json()
 				return data
 			} catch(err){
-				console.log(`Ошибка ${err}`)
+				const table = document.querySelector('.table')
+				const div = document.createElement('div') 
+				div.innerHTML = `Произошла ошибка, данных нет!`
+				table.append(div)
 			}
 		}
 
@@ -22,7 +25,10 @@ export class UserService {
 				const responceData = await response.json()
 				return responceData 
 			}catch(err){
-				console.log(`Ошибка ${err}`)
+				const table = document.querySelector('.table')
+				const div = document.createElement('div') 
+				div.innerHTML = `Произошла ошибка, данных нет!`
+				table.append(div)
 			}
 		}
 
