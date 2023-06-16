@@ -17,12 +17,23 @@ export const addUsers = () => {
 					permissions: false
 			}
 
-			userService.addUser(user).then(() => {
-				userService.getUsers().then(users => {
+			userService.setData('http://localhost:4444/users', user, "POST").then(() => {
+				userService.getData('http://localhost:4444/users').then(users => {
 					render(users)
 					form.reset()
 				})
 			})
+
+
+
+
+			// userService.addUser(user).then(() => {
+			// 	userService.getUsers().then(users => {
+			// 		render(users)
+			// 		form.reset()
+			// 	})
+			// })
+
 		}
 	})
 

@@ -7,18 +7,28 @@ export const filterUsers = () => {
 
 
 	btnIsChildern.addEventListener('click', () => {
-		userService.filterUsers('children').then(users => {
+		userService.getData(`http://localhost:4444/users?children=true`).then(users => {
 			render(users)
 		})
+
+		// userService.filterUsers('children').then(users => {
+		// 	render(users)
+		// })
 	})
 	btnIsPermission.addEventListener('click', () => {
-		userService.filterUsers('permissions').then(users => {
+		userService.getData(`http://localhost:4444/users?permissions=true`).then(users => {
 			render(users)
 		})
+		// userService.filterUsers('permissions').then(users => {
+		// 	render(users)
+		// })
 	})
 	btnIsAll.addEventListener('click', () => {
-		userService.getUsers().then(users => {
+		userService.getData('http://localhost:4444/users').then(users => {
 			render(users)
 		})
+		// userService.getUsers().then(users => {
+		// 	render(users)
+		// })
 	})
 }

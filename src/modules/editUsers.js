@@ -12,13 +12,22 @@ export const editUsers = () => {
 			const tr = e.target.closest('tr')
 			const id = tr.dataset.key
 
-			userService.getUser(id).then(user => {
+
+			userService.getData(`http://localhost:4444/users/${id}`).then(user => {
 				nameInput.value = user.name
 				emailInput.value = user.email
 				childrenInput.checked = user.children
 
 				form.dataset.method = id
 			})
+
+			// userService.getUser(id).then(user => {
+			// 	nameInput.value = user.name
+			// 	emailInput.value = user.email
+			// 	childrenInput.checked = user.children
+
+			// 	form.dataset.method = id
+			// })
 		}
 	})
 
@@ -34,13 +43,21 @@ export const editUsers = () => {
 					permissions: false
 			}
 
-			userService.editUser(id, user).then(() => {
-				userService.getUsers().then(users => {
+			userService.setData(`http://localhost:4444/users/${id}`, user, 'PATCH').then(() => {
+				userService.getData('http://localhost:4444/users').then(users => {
 					render(users)
 					form.reset()
 					form.removeAttribute('data-method')
 				})
 			})
+
+			// userService.editUser(id, user).then(() => {
+			// 	userService.getUsers().then(users => {
+			// 		render(users)
+			// 		form.reset()
+			// 		form.removeAttribute('data-method')
+			// 	})
+			// })
 		}
 	})
 

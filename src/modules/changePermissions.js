@@ -10,11 +10,18 @@ export const changePermissions = () => {
 			const id = tr.dataset.key
 
 
-			userService.changeUser(id, {permissions: input.checked}).then(res => {
-				userService.getUsers().then(users => {
+			userService.setData(`http://localhost:4444/users/${id}`, {permissions: input.checked}, 'PATCH').then(res => {
+				userService.getData('http://localhost:4444/users').then(users => {
 					render(users)
 				})
 			})
+
+
+			// userService.changeUser(id, {permissions: input.checked}).then(res => {
+			// 	userService.getUsers().then(users => {
+			// 		render(users)
+			// 	})
+			// })
 			
 		}
 	})

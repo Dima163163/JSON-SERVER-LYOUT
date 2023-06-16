@@ -11,9 +11,20 @@ import { searchUsers } from "./modules/searchUsers";
 
 window.userService = new UserService
 
-userService.getUsers().then(data => {
-	render(data)
-})
+const url = 'http://localhost:4444/users'
+
+const data = await userService.getData(url)
+
+render(data)
+
+
+
+
+
+
+// userService.getUsers().then(data => {
+// 	render(data)
+// })
 
 
 addUsers()
